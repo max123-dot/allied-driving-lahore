@@ -1,5 +1,7 @@
 # Allied Driving School Lahore — Website
 
+**Live:** https://max123-dot.github.io/allied-driving-lahore/
+
 Premium automotive-style business website (React 19 + TypeScript + Tailwind CSS v4 + React Router).
 All business data lives in **`src/config/business.ts`** — never hardcode phone numbers, prices or
 addresses in components.
@@ -25,6 +27,18 @@ src/pages/               Home, About, Courses, CourseDetail, Vehicles, Faqs, Con
 public/robots.txt        Disallows /admin, points at sitemap
 public/sitemap.xml       Update domain before launch
 ```
+
+## Deploying (GitHub Pages)
+
+- `main` holds the source. The live site is served from the `gh-pages` branch
+  (static `dist/` output, including `404.html` so client-side routes work on refresh).
+- Production builds use `VITE_BASE=/allied-driving-lahore/` (see `vite.config.ts` and
+  the `basename` in `src/App.tsx`). The deploy workflow lives in
+  `.github/workflows/deploy.yml` — note it is currently **not** pushed to the repo
+  because this machine's token lacks the `workflow` scope, so publishing is done by
+  pushing `dist/` to `gh-pages` (see `/tmp/opencode/deploy_pages.py`).
+- To set a custom admin password in a build: `VITE_ADMIN_PASSWORD=... npm run build`.
+  The `/admin` gate is client-side only — it deters casual visitors, not attackers.
 
 ## Admin dashboard (`/admin`)
 
