@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Sitemap: https://max123-dot.github.io/allied-driving-lahore/sitemap.xml
